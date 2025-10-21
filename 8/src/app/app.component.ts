@@ -14,20 +14,25 @@ import { Component } from '@angular/core';
   `],
   template: `
   <nav>
-      <a *ngFor="let nav of navs"
-      [routerLink]="nav.url" 
+      <a 
+      routerLink="" 
       routerLinkActive="active"
       [routerLinkActiveOptions]="{exact:true}"
-      > {{nav.content}} </a>
-      
+      >Home</a>
+      <a 
+      routerLink="contacts" 
+      routerLinkActive="active"  
+      [routerLinkActiveOptions]="{exact:true}"
+      >Contacts</a>
+       <a 
+      routerLink="contacts/1" 
+      routerLinkActive="active"  >Contact 1</a>
+
   </nav>
   <router-outlet></router-outlet>
-  ` 
-}) 
+  `,
+  standalone: false
+})
 export class AppComponent {
-  navs = [
-    {url:"", content: "home"},
-    {url:"contacts", content: "contacts"},
-    {url:"contacts/1", content: "One"}
-  ]
+  
 }

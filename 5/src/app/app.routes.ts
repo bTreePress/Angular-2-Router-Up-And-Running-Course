@@ -1,8 +1,8 @@
 import {RouterModule} from "@angular/router"
 
 const routes = [
-    {path:'', loadChildren:'app/home/home.module'},
-    {path:'contacts', loadChildren:'app/contacts/contacts.module'}
+    {path:'', loadChildren: () => import('./home/home.module').then(m => m.default)},
+    {path:'contacts', loadChildren: () => import('./contacts/contacts.module').then(m => m.default)}
     ]
 
 

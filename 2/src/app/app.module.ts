@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule ,Component} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import {appRoutes} from './app.routes';
 import { AppComponent } from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -16,11 +16,11 @@ import {ContactsComponent} from './contacts/contacts.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    
     appRoutes
   
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

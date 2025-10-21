@@ -1,18 +1,21 @@
 import {Component} from "@angular/core";
 import {ActivatedRoute } from "@angular/router"
-import "rxjs/add/operator/map";
+import {map} from "rxjs/operators";
 
 @Component({
-  template:'contact for {{ id |async }}'
+  selector: 'app-contact',
+  template:'contact for {{ id |async }}',
+  standalone: false
 })
 export class ContactComponent{
     id;
 
     constructor (private route:ActivatedRoute)
     {
-       this.id = route.params
-       .map((p:any) => p.id)
-     
+       this.id = route.params.pipe(
+         map((p:any) => p.id)
+       )
+
     }
 }
 
